@@ -1,0 +1,4 @@
+ms-vscode.cpptools
+notskm.clang-tidy
+xaver.clang-format
+ms-vscode-remote.remote-ssh

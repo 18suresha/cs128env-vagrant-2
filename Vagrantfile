@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = 512
     vb.cpus = 1
+    # vb.customize ["modifyvm", :id, "--hwvirtex", "on"]
   end
   config.vm.provision "shell", inline: <<-SHELL
 

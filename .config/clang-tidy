@@ -8,5 +8,7 @@ CheckOptions:
   - { key: readability-identifier-naming.VariableCase,        value: lower_case }
   - { key: readability-identifier-naming.GlobalConstantPrefix,value: k }
   - { key: readability-identifier-naming.GlobalConstantCase,  value: CamelCase }
+  - { key: readability-identifier-naming.ConstantCase,  value: CamelCase }
+  - { key: readability-identifier-naming.ConstantPrefix,value: k }
   - { key: readability-function-size.LineThreshold,           value: 40         }
   - { key: cppcoreguidelines-special-member-functions.AllowMissingMoveFunctions, value: 1 }

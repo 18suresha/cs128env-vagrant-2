@@ -18,7 +18,7 @@ NamespaceIndentation: All
 PointerAlignment: Left
 SpaceBeforeCtorInitializerColon: 'false'
 SpaceInEmptyParentheses: 'false'
-SpacesInParentheses: 'true'
+SpacesInParentheses: 'false'
 Standard: Cpp11
 TabWidth: '2'
 UseTab: Never

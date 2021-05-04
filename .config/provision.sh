@@ -6,6 +6,8 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get $APT_FLAGS update
 apt-get $APT_FLAGS install build-essential python3-pip
 
+apt-get $APT_FLAGS install curl sqlite3
+
 # install and configure clang-10, libc++abi-dev, and libc++-dev
 apt-get $APT_FLAGS install clang-10 libc++abi-dev libc++-dev clangd-10
 update-alternatives --install /usr/bin/clang clang /usr/bin/clang-10 100

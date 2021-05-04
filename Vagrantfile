@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-18.04"
   # config.ssh.forward_x11 = true
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "cs128@illinois"
+    vb.name = "cs128@illinois-v2021b"
     vb.memory = 512
     vb.cpus = 1
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]

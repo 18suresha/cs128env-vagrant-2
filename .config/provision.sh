@@ -29,5 +29,7 @@ ln -sf /vagrant/.config/clang-tidy /home/vagrant/.clang-tidy
 ln -sf /vagrant/.config/clang-format /home/vagrant/.clang-format
 ln -sf /vagrant/.vscode /home/vagrant/.vscode
 
+echo 'curl https://sh.rustup.rs -sSf | sh -s -- -y;' | su vagrant
+
 # grep -qxF 'ForwardX11 yes' /etc/ssh/ssh_config || echo '    ForwardX11 yes' >> /etc/ssh/ssh_config
 # grep -qxF 'ForwardX11Trusted yes' /etc/ssh/ssh_config || echo '    ForwardX11Trusted yes' >> /etc/ssh/ssh_config

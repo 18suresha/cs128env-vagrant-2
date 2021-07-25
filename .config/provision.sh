@@ -14,7 +14,7 @@ ln -sf /usr/bin/clang-10 /usr/bin/clang
 ln -sf /usr/bin/clang++-10 /usr/bin/clang++
 ln -sf /usr/bin/lldb-10 /usr/bin/lldb
 ln -sf /usr/bin/clangd-10 /usr/bin/clangd
-ln -sf /usr/bin/lldb-server-10 /usr/bin/lldb-server-10.0.0
+ln -sf /usr/bin/lldb-server-10 /usr/bin/lldb-server-10.0.1
 # update-alternatives --install /usr/bin/clang clang /usr/bin/clang-10 100
 # update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-10 100
 # update-alternatives --install /usr/bin/llvm-symbolizer llvm-symbolizer /usr/bin/llvm-symbolizer-10 100
@@ -29,15 +29,12 @@ ln -sf /usr/bin/clang-tidy-10 /usr/bin/clang-tidy
 
 apt-get $APT_FLAGS install make cmake git vim nano gedit manpages-dev gdb lldb-10 valgrind graphviz imagemagick gnuplot # xorg
 
-# build the lldb-mi executable
 git clone https://github.com/lldb-tools/lldb-mi.git
 cd lldb-mi
 cmake .
 cmake --build .
-mv src/lldb-mi /usr/bin/
-# add bin to home folder for visual debugging
-mkdir /home/vagrant/bin/
-sudo chown -R vagrant:vagrant /home/vagrant/bin/
+cp src/lldb-mi /usr/bin/
+cd ~/
 
 # other configuration
 sudo ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
@@ -46,6 +43,10 @@ dpkg-reconfigure tzdata 2>&1
 ln -sf /vagrant/.config/clang-tidy /home/vagrant/.clang-tidy
 ln -sf /vagrant/.config/clang-format /home/vagrant/.clang-format
 ln -sf /vagrant/.vscode /home/vagrant/.vscode
+
+# for visual debugging
+mkdir /home/vagrant/bin/
+sudo chown -R vagrant:vagrant /home/vagrant/bin/
 
 echo 'curl https://sh.rustup.rs -sSf | sh -s -- -y;' | su vagrant
 

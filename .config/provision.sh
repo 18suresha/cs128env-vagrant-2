@@ -21,7 +21,7 @@ ln -sf /usr/bin/lldb-server-10 /usr/bin/lldb-server-10.0.1
 # update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
 
 # other utilities
-apt-get $APT_FLAGS install clang-format-10 clang-tidy-10 cppcheck uncrustify
+apt-get $APT_FLAGS install clang-format-10 clang-tidy-10 cppcheck uncrustify catch
 ln -sf /usr/bin/clang-format-10 /usr/bin/clang-format
 ln -sf /usr/bin/clang-tidy-10 /usr/bin/clang-tidy
 # update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-10 100
@@ -35,6 +35,7 @@ cmake .
 cmake --build .
 cp src/lldb-mi /usr/bin/
 cd ~/
+rm -rf lldb-mi
 
 # other configuration
 sudo ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime

@@ -34,7 +34,7 @@ cd lldb-mi
 cmake .
 cmake --build .
 cp src/lldb-mi /usr/bin/
-cd ~/
+cd ../
 rm -rf lldb-mi
 
 # other configuration

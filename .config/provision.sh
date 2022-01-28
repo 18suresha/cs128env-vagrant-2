@@ -8,8 +8,12 @@ apt-get $APT_FLAGS install build-essential python3-pip
 
 apt-get $APT_FLAGS install curl sqlite3
 
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+./llvm.sh 10
+
 # install and configure clang-10, libc++abi-dev, and libc++-dev
-apt-get $APT_FLAGS install clang-10 libc++abi-dev libc++-dev clangd-10 llvm-10-dev liblldb-10-dev
+apt-get $APT_FLAGS install libc++abi-dev libc++-dev clangd-10 llvm-10-dev liblldb-10-dev
 ln -sf /usr/bin/clang-10 /usr/bin/clang
 ln -sf /usr/bin/clang++-10 /usr/bin/clang++
 ln -sf /usr/bin/lldb-10 /usr/bin/lldb

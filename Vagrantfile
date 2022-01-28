@@ -3,12 +3,14 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-21.04"
+  #config.vm.box = "bento/ubuntu-20.10"
   #config.vm.box = "bento/ubuntu-18.04"
-  config.vm.box = "bento/ubuntu-20.10"
+
   # config.ssh.forward_x11 = true
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "cs128@illinois-v2021c"
-    vb.memory = 512
+    vb.name = "cs128@illinois"
+    vb.memory = 1024
     vb.cpus = 2
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ["modifyvm", :id, "--usb", "off"]

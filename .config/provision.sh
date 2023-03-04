@@ -3,17 +3,20 @@
 APT_FLAGS="-qq -y -o Dpkg::Use-Pty=0"
 export DEBIAN_FRONTEND=noninteractive
 
-apt-get $APT_FLAGS update
-apt-get $APT_FLAGS install build-essential python3-pip
+sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+sudo apt-get -y update && sudo apt-get -y dist-upgrade
 
-apt-get $APT_FLAGS install curl sqlite3
+# apt-get $APT_FLAGS update
+apt-get $APT_FLAGS install -y build-essential python3-pip
+
+apt-get $APT_FLAGS install -y curl sqlite3
 
 wget https://apt.llvm.org/llvm.sh
 chmod +x llvm.sh
 ./llvm.sh 10
 
 # install and configure clang-10, libc++abi-dev, and libc++-dev
-apt-get $APT_FLAGS install libc++abi-dev libc++-dev clangd-10 llvm-10-dev liblldb-10-dev
+apt-get $APT_FLAGS install -y libc++abi-dev libc++-dev clangd-10 llvm-10-dev liblldb-10-dev
 ln -sf /usr/bin/clang-10 /usr/bin/clang
 ln -sf /usr/bin/clang++-10 /usr/bin/clang++
 ln -sf /usr/bin/lldb-10 /usr/bin/lldb
@@ -25,13 +28,13 @@ ln -sf /usr/bin/lldb-server-10 /usr/bin/lldb-server-10.0.1
 # update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
 
 # other utilities
-apt-get $APT_FLAGS install clang-format-10 clang-tidy-10 cppcheck uncrustify catch
+apt-get $APT_FLAGS install -y clang-format-10 clang-tidy-10 cppcheck uncrustify catch
 ln -sf /usr/bin/clang-format-10 /usr/bin/clang-format
 ln -sf /usr/bin/clang-tidy-10 /usr/bin/clang-tidy
 # update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-10 100
 # update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-10 100
 
-apt-get $APT_FLAGS install make cmake git vim nano gedit manpages-dev gdb lldb-10 valgrind graphviz imagemagick gnuplot # xorg
+apt-get $APT_FLAGS install -y make cmake git vim nano gedit manpages-dev gdb lldb-10 valgrind graphviz imagemagick gnuplot # xorg
 
 git clone https://github.com/lldb-tools/lldb-mi.git
 cd lldb-mi

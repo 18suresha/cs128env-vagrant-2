@@ -3,8 +3,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-21.04"
-  #config.vm.box = "bento/ubuntu-20.10"
+  #config.vm.box = "bento/ubuntu-21.10"
+  config.vm.box = "bento/ubuntu-20.10"
   #config.vm.box = "bento/ubuntu-18.04"
 
   # config.ssh.forward_x11 = true
